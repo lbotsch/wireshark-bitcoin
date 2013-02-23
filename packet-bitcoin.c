@@ -45,6 +45,13 @@
 
 #define BITCOIN_PORT 8333
 
+#ifndef ENC_BIG_ENDIAN
+#define ENC_BIG_ENDIAN TRUE
+#endif
+
+#ifndef ENC_LITTLE_ENDIAN
+#define ENC_LITTLE_ENDIAN FALSE
+#endif
 
 /*
  * Minimum bitcoin identification header.
