@@ -1,0 +1,32 @@
+#
+# $Id: Custom.nmake.example 45172 2012-09-27 11:39:54Z etxrab $
+#
+
+include ..\config.nmake
+
+all: bitcoin
+
+bitcoin:: 
+	cd bitcoin
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+clean:
+	cd bitcoin
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ..
+
+distclean: clean
+	cd bitcoin
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ..
+
+maintainer-clean: distclean
+	cd bitcoin
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ..
+
+install-plugins:
+!IFDEF ENABLE_LIBWIRESHARK
+	xcopy bitcoin\*.dll ..\$(INSTALL_DIR)\plugins\$(VERSION) /d
+!ENDIF

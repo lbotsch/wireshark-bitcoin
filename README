@@ -1,0 +1,34 @@
+===========================
+Wireshark Bitcoin Dissector
+===========================
+
+Thanks to Christian Svensson for the original dissector code.
+See https://github.com/blueCommand/bitcoin-dissector
+
+
+
+Build instructions:
+-------------------
+
+Prepare Source:
+
+- Download wireshark source: http://www.wireshark.org/download/src/all-versions/
+- tar xjvf wireshark-VERSION.tar.bz2
+- cd wireshark-VERSION/plugins
+- git clone git://github.com/lbotsch/wireshark-bitcoin.git bitcoin
+- cp bitcoin/Custom.* .
+- cd ..
+- ./autogen.sh
+- ./configure
+
+Build Wireshark from source (optional):
+
+- make && make install
+
+Build Plugin only:
+
+- cd plugins/bitcoin
+- make && make install
+
+IMPORTANT: If you only build the plugin make shure you set the prefix to the same location as your wireshark installation
+./configure --prefix=/usr

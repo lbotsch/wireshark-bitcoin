@@ -1,0 +1,6 @@
+Makefile
+Makefile.in
+bitcoin.la
+packet-bitcoin.lo
+plugin.c
+plugin.lo
