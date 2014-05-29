@@ -801,7 +801,7 @@ static void dissect_bitcoin(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
       get_bitcoin_pdu_length, dissect_bitcoin_tcp_pdu);
 }
 
-void proto_register_bitoin()
+void proto_register_bitoin(void)
 {
   static hf_register_info hf[] = {
     { &hf_bitcoin_magic,
@@ -1006,7 +1006,7 @@ void proto_register_bitoin()
 
 }
 
-void proto_reg_handoff_bitcoin()
+void proto_reg_handoff_bitcoin(void)
 {
   dissector_handle = find_dissector("bitcoin.tcp");
 
